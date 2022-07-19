@@ -1,0 +1,107 @@
+#confirmed_body {
+  background: url("../assests/home-page.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+.confirmed-opacity {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+}
+.confirmed-wrapper {
+  width: 80%;
+  height: 75%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffff;
+  display: grid;
+  padding: 20px;
+  grid-template-columns: 0.55fr 0.45fr;
+  box-shadow: 10px 5px 20px 4px rgba(147, 46, 187, 0.301);
+}
+.confirmed-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  margin-top: 100px;
+}
+.brought-items {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.brought-items img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+.confirmed-text h1 {
+  color: #9600b1;
+  margin-bottom: 60px;
+}
+.confirmed-text p {
+  font-size: large;
+}
+.confirmed-text button {
+  margin-top: 40px;
+  padding: 8px 14px;
+  color: white;
+  background-color: #9600b1;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.confirmed-text button:hover {
+  background-color: #7c0092;
+}
+.confirmed-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.confirmed-img img {
+  width: 300px;
+  height: 300px;
+}
+@media only screen and (max-width: 425px) {
+  .confirmed-img img {
+    width: 150px;
+    height: 150px;
+  }
+  .confirmed-wrapper {
+    height: max-content;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 40px;
+  }
+  .confirmed-img {
+    margin-bottom: 10px;
+  }
+  .confirmed-text {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  .confirmed-text h1 {
+    margin-bottom: 20px;
+    font-size: 22px;
+  }
+  .confirmed-text p {
+    font-size: 14px;
+  }
+  .confirmed-text button {
+    margin-top: 20px;
+    font-size: 12px;
+  }
+  .brought-items img {
+    width: 35px;
+    height: 35px;
+  }
+}

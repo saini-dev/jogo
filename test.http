@@ -1,0 +1,26 @@
+POST http://localhost:3001/products
+Content-Type: application/json
+
+{
+    "img": "/assests/resident_evil.jpg",
+    "name": "Resident Evil 7",
+    "price": 1999,
+    "genre": ["Action","Single Player","Role-Playing"]
+}
+
+###
+
+GET http://localhost:3001/products/
+
+###
+
+PATCH http://localhost:3001/products/PUBG
+Content-type: application/json
+
+{
+    "img": "/assests/pubg.jpg"
+}
+
+###
+
+DELETE  http://localhost:3001/users/Blood04
