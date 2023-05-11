@@ -4,6 +4,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {FaRegEyeSlash} from "react-icons/fa";
 import {GoEye} from "react-icons/go";
 import { motion } from "framer-motion";
+import { environment } from '../environment/environment';
 
 function Login() {
 
@@ -15,7 +16,7 @@ function Login() {
   
   const handleLogin = async (e) => {
     e.preventDefault();
-    const data = await fetch(`https://jogo-server.herokuapp.com/users/${uname}`)
+    const data = await fetch(`${environment.baseURL}/users/${uname}`)
     const user = await data.json();
     if(user.User === null){
       setConfirm(0);

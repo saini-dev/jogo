@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import "../styles/Signup.css"
 import {Link, useNavigate} from "react-router-dom";
 import { motion } from "framer-motion";
+import { environment } from '../environment/environment';
 
 function Signup(props) {
   const [confirm, setConfirm] = useState(1);
@@ -11,7 +12,7 @@ function Signup(props) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://jogo-server.herokuapp.com/users/exists/uname/${user.Uname}`)
+    fetch(`${environment.baseURL}/users/exists/uname/${user.Uname}`)
     .then(res => res.json())
     .then(res => {
       if(res.message === "yes"){
@@ -24,7 +25,7 @@ function Signup(props) {
   },[user.Uname])
 
   useEffect(() => {
-    fetch(`https://jogo-server.herokuapp.com/users/exists/email/${user.email}`)
+    fetch(`${environment.baseURL}/users/exists/email/${user.email}`)
     .then(res => res.json())
     .then(res => {
       if(res.message === "yes"){
@@ -56,7 +57,7 @@ function Signup(props) {
       }
       else{
         try{
-          await fetch("https://jogo-server.herokuapp.com/users" , {
+          await fetch("${environment.baseURL}/users" , {
             method: "POST",
             headers: {
               "Content-Type": "application/json"

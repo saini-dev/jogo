@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import { useNavigate } from 'react-router-dom';
 import "../styles/Library.css"
 import { motion } from "framer-motion";
+import { environment } from '../environment/environment';
 
 function Library() {
 
@@ -14,7 +15,7 @@ function Library() {
       navigate("/", {replace: true});
     }
 
-    fetch(`https://jogo-server.herokuapp.com/users/${localStorage.getItem("uname")}`)
+    fetch(`${environment.baseURL}/users/${localStorage.getItem("uname")}`)
     .then(res => res.json())
     .then(res => setGames(res.User.games))
     .catch(e => console.log(e.message));

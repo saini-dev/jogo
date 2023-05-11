@@ -6,6 +6,7 @@ import {AiOutlineDelete} from "react-icons/ai";
 import {MdAddShoppingCart, MdShoppingCart} from "react-icons/md";
 import {useNavigate} from "react-router-dom";
 import { motion } from "framer-motion";
+import { environment } from '../environment/environment';
 
 function Products(props) {
   
@@ -41,12 +42,12 @@ function Products(props) {
   useEffect(() => {
 
     //fetching all the games
-    fetch("https://jogo-server.herokuapp.com/products")
+    fetch(`${environment.baseURL}/products`)
     .then(res => res.json())
     .then(res => {
 
       //fetching user owned games
-      fetch(`https://jogo-server.herokuapp.com/users/${localStorage.getItem("uname")}`)
+      fetch(`${environment.baseURL}/users/${localStorage.getItem("uname")}`)
       .then(data => data.json())
       .then(data => {
         const userGames = data.User.games;
@@ -82,7 +83,7 @@ function Products(props) {
   //Handling add to cart button
   const addToCart = (e) => {
     const name = e.target.parentNode.parentNode.getAttribute("id");
-    fetch(`https://jogo-server.herokuapp.com/products/${name}`)
+    fetch(`${environment.baseURL}/products/${name}`)
     .then(res => res.json())
     .then(res => {
       let yes = 0;
@@ -131,7 +132,7 @@ function Products(props) {
     }
 
     //Adding brought items to user's library
-    fetch(`https://jogo-server.herokuapp.com/users/${localStorage.getItem("uname")}`, {
+    fetch(`${environment.baseURL}/users/${localStorage.getItem("uname")}`, {
       method: 'PATCH',
       headers: {
         "Content-Type": "application/json"
