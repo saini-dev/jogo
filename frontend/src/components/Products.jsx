@@ -50,9 +50,9 @@ function Products(props) {
       fetch(`${environment.baseURL}/users/${localStorage.getItem("uname")}`)
       .then(data => data.json())
       .then(data => {
-        const userGames = data.User.games;
+        const userGames = data?.User?.games;
         for (const item of res) {
-          if(!userGames.some(e => e.name === item.name)){
+          if(!userGames?.some(e => e.name === item.name)){
 
             //Adding the games that user does not own to states
             setGames(e => [...e, item]);
@@ -182,6 +182,7 @@ function Products(props) {
       for (const item of games) {
         for (const genre of item.genre) {
           if(e.target.innerText === genre){
+            console.log(item)
             setCategory(e => [...e, item]);
           }
         }
